@@ -1,1 +1,40 @@
-node_modules/
+# User preferences
+.DS_Store
+
+# Dependencies
+node_modules
+
+# Builds / Caches
+dist
+storybook-static
+coverage
+*.tsbuildinfo
+**/.vitepress/cache
+**/.vitepress/.temp
+.thumbsmith
+
+# Dotenv configs
+.env
+.env.backup
+.env.production
+
+# Logs
+npm-debug.log
+debug
+.clinic
+
+# Environments / Workspaces
+.gitpod.yml
+.netlify
+
+# IDEs / Editors
+.idea
+*.code-workspace
+.*.swp
+.history
+*.sublime-settings
+
+# Temporary files
+TODO
+ts-errors.yaml
+*.db
