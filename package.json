@@ -13,7 +13,9 @@
     "dist"
   ],
   "scripts": {
-		"lint": "eslint .",
+		"lint": "NODE_ENV=development eslint .",
+		"lint:prod": "eslint .",
+		"lint:fix": "eslint . --fix",
 		"format": "prettier --write \"**/*.{md,y?(a)ml,json}\"",
     "dev": "NODE_ENV=development tsx watch --clear-screen=false src/start.ts",
     "build": "tsc --project tsconfig.prod.json && copyfiles \"src/**/*.{yaml,liquid}\" -u 1 dist"

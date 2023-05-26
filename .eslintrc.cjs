@@ -70,6 +70,7 @@ module.exports = {
 		// Configuration for ts files
 		{
 			files: ['*.ts'],
+			parser: '@typescript-eslint/parser',
 			parserOptions: {
 				parser: '@typescript-eslint/parser',
 			},
