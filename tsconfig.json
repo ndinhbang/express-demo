@@ -1,8 +1,15 @@
 {
-  "extends": "./node18-esm.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "sourceMap": true
-  },
-  "include": ["src"]
+	"extends": "./node18-esm.json",
+	"compilerOptions": {
+		"composite": true,
+		"outDir": "dist",
+		"types": [
+			"node"
+		],
+		"sourceMap": true
+	},
+	"include": [
+		"src",
+		"vitest.config.*"
+	]
 }
