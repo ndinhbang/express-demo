@@ -5,8 +5,7 @@ WORKDIR /app
 ENV NODE_ENV=development
 ENV NODE_OPTIONS=--max-old-space-size=8192
 
-COPY package.json .
-RUN corepack enable && corepack prepare
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY pnpm-lock.yaml .
 RUN pnpm fetch
