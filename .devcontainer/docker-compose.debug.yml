@@ -9,6 +9,9 @@ services:
     volumes:
       - app_dir:/app
     ports:
-      - "127.0.0.1:3000:3000"
+      - 3000:3000
+      - 9229:9229
+    environment:
+      NODE_ENV: development
 volumes:
   app_dir:

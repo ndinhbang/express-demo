@@ -1,0 +1,69 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
+{
+	"name": "Node.js & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// More info: https://code.visualstudio.com/docs/devcontainers/tips-and-tricks#_persisting-user-profile
+	"mounts": [
+		"source=profile,target=/root,type=volume",
+		"target=/root/.vscode-server,type=volume"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"formulahendry.auto-close-tag",
+				"formulahendry.auto-rename-tag",
+				"aaron-bond.better-comments",
+				"ms-vscode-remote.remote-containers",
+				"ms-azuretools.vscode-docker",
+				"pranaygp.vscode-css-peek",
+				"steoates.autoimport",
+				"EditorConfig.EditorConfig",
+				"dbaeumer.vscode-eslint",
+				"eamodio.gitlens",
+				"nhoizey.gremlins",
+				"wix.vscode-import-cost",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"ms-vscode.js-debug-nightly",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"shd101wyy.markdown-preview-enhanced",
+				"DavidAnson.vscode-markdownlint",
+				"kricsleo.vscode-package-json-inspector",
+				"christian-kohler.path-intellisense",
+				"ms-playwright.playwright",
+				"esbenp.prettier-vscode",
+				"WallabyJs.quokka-vscode",
+				"mutantdino.resourcemonitor",
+				"bradlc.vscode-tailwindcss",
+				"Gruntfuggly.todo-tree",
+				"Vue.vscode-typescript-vue-plugin",
+				"antfu.vite",
+				"ZixuanChen.vitest-explorer",
+				"redhat.vscode-yaml",
+				"Vue.volar",
+				"usernamehw.errorlens",
+				"mikestead.dotenv",
+				"alefragnani.Bookmarks",
+				"jasonlhy.hungry-delete",
+				"kisstkondoros.vscode-gutter-preview",
+				"xabikos.JavaScriptSnippets",
+				"IBM.output-colorizer",
+				"stkb.rewrap"
+			]
+		}
+	}
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	// "forwardPorts": [3000, 5432],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
