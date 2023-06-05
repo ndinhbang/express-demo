@@ -2,18 +2,20 @@ version: '3.9'
 
 services:
   backend:
-    image: backend
+    image: backend_dev
     build:
       context: .
       dockerfile: ./Dockerfile
-      target: prod
+      target: dev
     volumes:
-      - backend:/app
+      - backend_dev:/app
     expose:
       - 3000
     ports:
       - "127.0.0.1:3000:3000"
+      - "127.0.0.1:9229:9229"
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
+    command: pnpm debug
 volumes:
-  backend:
+  backend_dev:
