@@ -1,9 +1,4 @@
-**/.editorconfig
-**/.dockerignore
-**/.git
-**/.DS_Store
-**/.vscode
-**/node_modules
-**/dist
-**/.env
-**/.cache
+.DS_Store
+node_modules
+dist
+.pnpm-store

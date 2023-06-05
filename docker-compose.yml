@@ -2,18 +2,22 @@ version: '3.9'
 
 services:
   backend:
-    image: backend
+    image: backend_dev
     build:
       context: .
-      dockerfile: ./Dockerfile
-      target: prod
+      dockerfile: Dockerfile
+      target: dev
     volumes:
-      - backend:/app
-    expose:
-      - 3000
+      - workspace:/app
+      # More info: https://code.visualstudio.com/docs/devcontainers/tips-and-tricks#_persisting-user-profile
+      - profile:/root
+      - /root/.vscode-server
     ports:
       - "127.0.0.1:3000:3000"
+      - "127.0.0.1:9229:9229"
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
+    command: pnpm dev
 volumes:
-  backend:
+  workspace:
+  profile:

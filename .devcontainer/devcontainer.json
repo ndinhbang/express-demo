@@ -1,18 +1,12 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
 {
-	"name": "Node.js & PostgreSQL",
+	"name": "Docker Node 18",
 	"dockerComposeFile": [
-		"../docker-compose.yml",
-		"docker-compose.yml"
+		"../docker-compose.yml"
 	],
 	"service": "backend",
 	"workspaceFolder": "/app",
-	// More info: https://code.visualstudio.com/docs/devcontainers/tips-and-tricks#_persisting-user-profile
-	"mounts": [
-		"source=profile,target=/root,type=volume",
-		"target=/root/.vscode-server,type=volume"
-	],
 	"customizations": {
 		"vscode": {
 			"extensions": [
