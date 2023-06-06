@@ -1,7 +1,6 @@
 {
 	"extends": "./node18-esm.json",
 	"compilerOptions": {
-		"composite": true,
 		"outDir": "dist",
 		"types": [
 			"node"

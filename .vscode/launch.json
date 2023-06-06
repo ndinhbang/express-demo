@@ -8,7 +8,7 @@
 			"port": 9229,
 			"restart": true,
 			"remoteRoot": "/app",
-			// "localRoot": "${workspaceFolder}",
+			"localRoot": "${workspaceFolder}",
 			"sourceMaps": true,
 		}
 	]

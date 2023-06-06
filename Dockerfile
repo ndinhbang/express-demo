@@ -14,21 +14,17 @@ COPY . .
 
 RUN pnpm install --recursive --offline --frozen-lockfile
 
-RUN npm_config_workspace_concurrency=1 pnpm run build
+RUN npm_config_workspace_concurrency=1 pnpm build
 
 # production stage
-FROM gcr.io/distroless/nodejs18-debian11 as prod
-
-USER node
+FROM gcr.io/distroless/nodejs18-debian11:latest as prod
 
 WORKDIR /app
 
-ENV \
-	NODE_ENV="production" \
-	NPM_CONFIG_UPDATE_NOTIFIER="false"
+ENV NODE_ENV="production"
 
-COPY --from=builder --chown=node:node /app/dist .
+COPY --from=dev --chown=node:node /app/dist /app/dist
 
 EXPOSE 3000
 
-CMD ["node", "dist/start.js"]
+CMD ["dist/start.js"]
