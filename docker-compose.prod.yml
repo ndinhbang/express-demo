@@ -5,7 +5,7 @@ services:
     image: backend:v1
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
       target: prod
     volumes:
       - backend:/app
