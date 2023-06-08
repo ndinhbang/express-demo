@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   backend:
+    container_name: backend_prod
     image: backend:v1
     build:
       context: .
@@ -10,7 +11,7 @@ services:
     volumes:
       - backend:/app
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3000"
     environment:
       NODE_ENV: production
 volumes:
