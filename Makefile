@@ -1,5 +1,5 @@
 up:
-	docker compose up -d
+	docker compose up -d --remove-orphans
 
 down:
 	docker compose down
@@ -10,5 +10,5 @@ build:
 clean:
 	docker system prune
 
-prod:
-	docker compose -f docker-compose.prod.yml up -d --force-recreate --build
+dev:
+	docker compose -f docker-compose.dev.yml up -d --remove-orphans

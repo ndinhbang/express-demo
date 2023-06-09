@@ -1,17 +1,12 @@
 # syntax=docker/dockerfile:1.4
-FROM node:18.16.0-bullseye-slim as dev
+FROM node:18.16.0-bullseye-slim as build
 
 WORKDIR /app
 
-ENV NODE_ENV="development"
 ENV NODE_OPTIONS=--max-old-space-size=8192
+ENV NODE_ENV="development"
 
-RUN : \
-	&& apt-get -y update \
-	&& apt-get install -y --no-install-recommends git \
-	;
-
-RUN corepack enable && corepack prepare
+RUN corepack enable && corepack prepare pnpm@8.5.1 --activate
 # pnpm fetch does require only lockfile
 COPY pnpm-lock.yaml .
 # More detail: https://pnpm.io/cli/fetch
@@ -21,32 +16,21 @@ COPY . .
 
 RUN pnpm install --recursive --offline --frozen-lockfile
 
-########################## BUILD STAGE ##########################
-FROM dev as build
-
-WORKDIR /app
-
-ENV NODE_OPTIONS=--max-old-space-size=8192
-ENV NODE_ENV="production"
-
-RUN corepack enable && corepack prepare
-
-COPY --from=dev /app/pnpm-lock.yaml ./
-RUN pnpm fetch --prod
-
-COPY --from=dev /app/package.json /app/dist ./
-
-RUN pnpm install --recursive --offline --frozen-lockfile --prod
-
-RUN npm_config_workspace_concurrency=1 pnpm run build
+RUN : \
+	&& npm_config_workspace_concurrency=1 pnpm build \
+	&& rm -rf node_modules \
+	&& pnpm install --recursive --offline --frozen-lockfile --prod \
+	;
 
 ########################## PRODUCTION STAGE ######################
 FROM gcr.io/distroless/nodejs18-debian11:latest as prod
 
 WORKDIR /app
 
-COPY --from=builder --chown=node:node /app/dist /app/dist
+COPY --from=build --chown=node:node /app/package.json ./
+COPY --from=build --chown=node:node /app/dist  ./dist
+COPY --from=build --chown=node:node /app/node_modules ./node_modules
 
 EXPOSE 3000
 
-CMD ["dist/start.js"]
+CMD ["./dist/start.js"]
