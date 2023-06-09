@@ -9,6 +9,7 @@ ENV NODE_OPTIONS=--max-old-space-size=8192
 RUN : \
 	&& apt-get -y update \
 	&& apt-get install -y --no-install-recommends \
+	ca-certificates \
 	git \
 	;
 
