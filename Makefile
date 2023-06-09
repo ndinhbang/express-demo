@@ -1,5 +1,5 @@
 up:
-	docker compose up -d --remove-orphans
+	docker compose up -d --remove-orphans --force-recreate --build
 
 down:
 	docker compose down
