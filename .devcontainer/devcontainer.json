@@ -48,7 +48,8 @@
 				"kisstkondoros.vscode-gutter-preview",
 				"xabikos.JavaScriptSnippets",
 				"IBM.output-colorizer",
-				"stkb.rewrap"
+				"stkb.rewrap",
+				"TabNine.tabnine-vscode"
 			]
 		}
 	}
