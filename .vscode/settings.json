@@ -4,6 +4,7 @@
 	"editor.formatOnSave": true,
 	"editor.unicodeHighlight.nonBasicASCII": false,
 	"javascript.updateImportsOnFileMove.enabled": "always",
+	"prettier.prettierPath": "./node_modules/prettier",
 	"[jsonc]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
