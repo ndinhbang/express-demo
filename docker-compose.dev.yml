@@ -18,7 +18,7 @@ services:
       - "127.0.0.1:9229:9229"
     environment:
       NODE_ENV: development
-    command: pnpm dev
+    command: pnpm debug
 volumes:
   workspace:
   profile:
